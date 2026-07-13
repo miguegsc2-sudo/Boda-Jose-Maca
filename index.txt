@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda - Nombre & Nombre</title>
+    <!-- Fuentes elegantes (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variables de Diseño (Estilo Elegante/Lujo) */
+        :root {
+            --color-primario: #1a1a1a; /* Negro/Gris muy oscuro para fondo de lujo */
+            --color-secundario: #d4af37; /* Dorado sutil */
+            --color-fondo-claro: #fcfbf7; /* Blanco roto/marfil */
+            --color-texto-oscuro: #2c2c2c;
+            --color-texto-claro: #ffffff;
+            --fuente-titulos: 'Cormorant Garamond', serif;
+            --fuente-base: 'Montserrat', sans-serif;
+        }
+
+        /* Estilos Generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-base);
+            color: var(--color-texto-oscuro);
+            background-color: var(--color-fondo-claro);
+            line-height: 1.6;
+        }
+
+        /* Sección de Portada (Hero) */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--color-texto-claro);
+            /* Imagen de fondo de alta calidad (puedes cambiarla por una de los novios) */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920') no-repeat center center/cover;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--color-secundario);
+        }
+
+        .hero h1 {
+            font-family: var(--fuente-titulos);
+            font-size: 4.5rem;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Secciones Comunes */
+        .seccion {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .seccion-oscura {
+            background-color: var(--color-primario);
+            color: var(--color-texto-claro);
+            max-width: 100%;
+        }
+
+        .seccion h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .dorado {
+            color: var(--color-secundario);
+        }
+
+        .linea-separadora {
+            width: 60px;
+            height: 1px;
+            background-color: var(--color-secundario);
+            margin: 20px auto;
+        }
+
+        /* Bloques de Información (Cuándo y Dónde) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .seccion-oscura .info-card {
+            background: #222;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .info-card h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--color-secundario);
+        }
+
+        /* Cuenta Regresiva */
+        .cuenta-regresiva {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tiempo-bloque {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            min-width: 80px;
+        }
+
+        .tiempo-bloque span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 600;
+            font-family: var(--fuente-titulos);
+        }
+
+        /* Botones / Acciones */
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: transparent;
+            color: var(--color-secundario);
+            border: 1px solid var(--color-secundario);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--color-secundario);
+            color: var(--color-primario);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #666;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero h2 { font-size: 1.5rem; }
+            .seccion { padding: 60px 20px; }
+            .seccion h2 { font-size: 2.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PORTADA -->
+    <header class="hero">
+        <h2>Nuestra Boda</h2>
+        <h1>Carlos &amp; Valentina</h1>
+        <div class="linea-separadora"></div>
+        <p>14 . Noviembre . 2026</p>
+    </header>
+
+    <!-- HISTORIA / BIENVENIDA -->
+    <section class="seccion">
+        <h2>Bienvenidos</h2>
+        <div class="linea-separadora"></div>
+        <p style="max-width: 600px; margin: 0 auto; font-style: italic; color: #555;">
+            "Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más queremos los hace inolvidables."
+        </p>
+    </section>
+
+    <!-- CUÁNDO Y DÓNDE -->
+    <section class="seccion" style="background-color: #f7f5f0; max-width: 100%;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2>Cuándo &amp; Dónde</h2>
+            <div class="linea-separadora"></div>
+            
+            <div class="info-grid">
+                <!-- Ceremonia -->
+                <div class="info-card">
+                    <h3>La Ceremonia</h3>
+                    <p><strong>17:00 Hrs.</strong></p>
+                    <p>Iglesia Santa Teresa</p>
+                    <p>Av. Principal #123, Ciudad</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn">Ver Mapa</a>
+                </div>
+
+                <!-- Celebración -->
+                <div class="info-card">
+                    <h3>La Celebración</h3>
+                    <p><strong>19:30 Hrs.</strong></p>
+                    <p>Centro de Eventos El Castillo</p>
+                    <p>Camino Al Valle Km 5, Ciudad</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn">Ver Mapa</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUENTA REGRESIVA -->
+    <section class="seccion seccion-oscura">
+        <h2 class="dorado">Faltan Muy Pocos Días</h2>
+        <div class="linea-separadora"></div>
+        
+        <div class="cuenta-regresiva">
+            <div class="tiempo-bloque"><span id="dias">00</span>Días</div>
+            <div class="tiempo-bloque"><span id="horas">00</span>Hrs</div>
+            <div class="tiempo-bloque"><span id="minutos">00</span>Min</div>
+            <div class="tiempo-bloque"><span id="segundos">00</span>Seg</div>
+        </div>
+    </section>
+
+    <!-- CONFIRMACIÓN DE ASISTENCIA (RSVP) -->
+    <section class="seccion">
+        <h2>Confirmar Asistencia</h2>
+        <div class="linea-separadora"></div>
+        <p>Agradecemos confirmar tu presencia antes del 15 de Octubre.</p>
+        
+        <!-- Enlace directo a WhatsApp para que los novios reciban la confirmación -->
+        <a href="https://wa.me/56912345678?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda." target="_blank" class="btn" style="background-color: var(--color-primario); color: white; border: none;">
+            Confirmar por WhatsApp
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Carlos &amp; Valentina &copy; 2026 — Hecho con ♥</p>
+    </footer>
+
+    <!-- SCRIPT DE LA CUENTA REGRESIVA -->
+    <script>
+        // Cambia la fecha por la de la boda (Año, Mes [0-11], Día, Hora, Minutos)
+        const fechaBoda = new Date(2026, 10, 14, 17, 0, 0).getTime(); 
+
+        const actualizarCuenta = setInterval(function() {
+            const ahora = new Date().getTime();
+            const distancia = fechaBoda - ahora;
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
+            document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
+            document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
+
+            if (distancia < 0) {
+                clearInterval(actualizarCuenta);
+                document.querySelector(".cuenta-regresiva").innerHTML = "<h3>¡Llegó el Gran Día!</h3>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
